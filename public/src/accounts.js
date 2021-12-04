@@ -23,6 +23,7 @@ function getTotalNumberOfBorrows(account, books) {
   return count;
 }
 
+// helper function
 function findAuthorById(authors, id) {
   const match = authors.find((each) => each.id === id);
   return match;
@@ -37,9 +38,6 @@ function getBooksPossessedByAccount(account, books, authors) {
       // check whether the book is borrowed by the account
       if (id.id === account.id && id.returned === false) {
         let author = findAuthorById(authors, book.authorId);
-        //book["author"] = author
-        //console.log(book)
-        //console.log('-----------')
         const newBook = { ...book, author: author };
         console.log(newBook);
         bookArray.push(newBook);
